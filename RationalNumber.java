@@ -6,7 +6,7 @@ public class RationalNumber extends RealNumber{
     denominator = d;
   }
   public int getNumerator(){
-    return 0; //rando
+    return 0; //random
   }
   public int getDenominator(){
     return 0; //rando

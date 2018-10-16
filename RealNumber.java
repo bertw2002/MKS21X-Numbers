@@ -4,7 +4,7 @@ public class RealNumber{
     num = dub;
   }
   public double getNumber(){
-    return 1.0;//rando
+    return 1.0;//random
   }
   public String toString(){
     return "e";//rando

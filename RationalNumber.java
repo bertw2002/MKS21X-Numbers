@@ -34,20 +34,24 @@ public class RationalNumber extends RealNumber{
     return false;
   }
   public RationalNumber reciprocal(){
-    int n = numerator;
-    int d = denominator;
-    numerator = d;
-    denominator = n;
+    RationalNumber rnum;
+    rnum = new RationalNumber(denominator, numerator);
+    return rnum;
   }
 
   public String toString(){
+    if(getNumerator() == getDenominator()){
+      return "1";
+    }else if(getDenominator() == 1){
+      return getNumerator() + "";
+    }
     return getNumerator() + "/" + getDenominator();
   }
   public double getValue(){
     return getNumerator()/getDenominator();
   }
   private static int gcd(int a, int b){
-    int num;
+    int num; 
     while (b != 0){
       num = b;
       b = a % b;

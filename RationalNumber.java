@@ -1,21 +1,58 @@
 public class RationalNumber extends RealNumber{
   private int numerator, denominator;
-  public RationalNumber(int n, int d){
+  public RationalNumber(int nume, int deno){
     super(3.0);
-    numerator = n;
-    denominator = d;
+    numerator = nume;
+    denominator = deno;
+    if (denominator == 0){
+      denominator = 1;
+      numerator = 0;
+    }
+    int big;
+    if (denominator > numerator){
+      big = denominator;
+    }else{
+      big = numerator;
+    }
+    for (int x = 1; x < big; x++){
+      if (denominator % x == 0 && numerator % x == 0){
+        denominator /= x;
+        numerator /= x;
+      }
+    }
   }
   public int getNumerator(){
-    return 0; //random
+    return numerator;
   }
   public int getDenominator(){
-    return 0; //rando
+    return denominator;
   }
+  public boolean equals(RationalNumber other){
+    if (other.getNumerator() == other.getDenominator()){
+      return true;
+    }
+    return false;
+  }
+  public RationalNumber reciprocal(){
+    int n = numerator;
+    int d = denominator;
+    numerator = d;
+    denominator = n;
+  }
+
   public String toString(){
-    return "e"; //rando
+    return getNumerator() + "/" + getDenominator();
   }
-  public String getValue(){
-    return "s";//rando
-    //return getNumerator()/getDenominator();
+  public double getValue(){
+    return getNumerator()/getDenominator();
+  }
+  private static int gcd(int a, int b){
+    int num;
+    while (b != 0){
+      num = b;
+      b = a % b;
+      a = num;
+    }
+    return a;
   }
 }

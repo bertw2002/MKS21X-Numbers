@@ -1,7 +1,7 @@
 public class RealNumber{
-  private double num;
+  private double value;
   public RealNumber(double dub){
-    num = dub;
+    value = dub;
   }
   public double getNumber(){
     return 1.0;//random

@@ -10,10 +10,10 @@ public class RealNumber{
     return other.getNumber() * value;
   }
   public double divide(RealNumber other){
-    return other.getNumber()/value;
+    return value/other.getNumber();
   }
   public double subtract(RealNumber other){
-    return other.getNumber() - value;
+    return value - other.getNumber();
   }
   public double getNumber(){
     return value;

@@ -74,13 +74,13 @@ public class Driver {
     System.out.print("[a == c] (should print true): ");
     System.out.println(a.equals(c));
     System.out.println("----------");
-/*
+
     System.out.print("Numerator of Rational Number a (should print 1): ");
     System.out.println(a.getNumerator());
     System.out.print("Denominator of Rational Number a (should print 1): ");
     System.out.println(a.getDenominator());
     System.out.println("----------");
-*/
+
     // RationalNumber operations
     System.out.print("a + c (should print 1): ");
     System.out.println(a.add(c));

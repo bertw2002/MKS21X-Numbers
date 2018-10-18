@@ -55,16 +55,19 @@ public class RationalNumber extends RealNumber{
     return (double)getNumerator()/getDenominator();
   }
   private static int gcd(int a, int b){
-    if (a == 0){
-        return b;
-    }
     while (b != 0) {
-        if (a > b)
-            a = a - b;
-        else
-            b = b - a;
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
-    return a;
+    if (a != 0){
+      return a;
+    } else if (a == 0 && b != 0){
+      return b;
+    }else{
+      return 1;
+    }
+
   }
   public RationalNumber multiply(RationalNumber other){
     RationalNumber num;
@@ -78,10 +81,10 @@ public class RationalNumber extends RealNumber{
   }
   public RationalNumber add(RationalNumber other){
     RationalNumber num;
-    int thisnum = other.getNumerator() * this.getDenominator();
+    int thisnum = other.getDenominator() * this.getNumerator();
     int thisden = other.getDenominator() * this.getDenominator();
-    int othernum = this.getDenominator() * other.getDenominator();
-    int otherden = this.getNumerator() * other.getDenominator();
+    int othernum = this.getDenominator() * other.getNumerator();
+    int otherden = this.getDenominator() * other.getDenominator();
     int totalnum = thisnum + othernum;
     int totalden = thisden + otherden;
     int deno = totalden;
@@ -91,12 +94,14 @@ public class RationalNumber extends RealNumber{
     num = new RationalNumber(nume, deno);
     return num;
   }
+
+
   public RationalNumber subtract(RationalNumber other){
     RationalNumber num;
-    int thisnum = other.getNumerator() * this.getDenominator();
+    int thisnum = other.getDenominator() * this.getNumerator();
     int thisden = other.getDenominator() * this.getDenominator();
-    int othernum = this.getDenominator() * other.getDenominator();
-    int otherden = this.getNumerator() * other.getDenominator();
+    int othernum = this.getDenominator() * other.getNumerator();
+    int otherden = this.getDenominator() * other.getDenominator();
     int totalnum = thisnum - othernum;
     int totalden = thisden - otherden;
     int deno = totalden;
@@ -106,5 +111,6 @@ public class RationalNumber extends RealNumber{
     num = new RationalNumber(nume, deno);
     return num;
   }
+
 
 }
